@@ -2,12 +2,15 @@ from django.shortcuts import render
 import requests
 
 def astro_index(request):
-  r = requests.get('http://api.open-notify.org/astros.json')
+  r = requests.get('https://pokeapi.co/api/v2/pokemon/ditto')
   the_response = r.json()
-  people = the_response['people']
-  print(people)
+  sprites = the_response['sprites']
+  other = sprites['other']
+  offic = other['official-artwork']
+  img = offic['front_default']
+
   return render(request, 'astros.html', {
-    'people': people,
+    'img': img
   })
 
 
