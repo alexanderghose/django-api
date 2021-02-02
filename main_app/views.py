@@ -2,13 +2,7 @@ from django.shortcuts import render
 import requests
 
 def astro_index(request):
-  r = requests.get('http://api.open-notify.org/astros.json')
-  the_response = r.json()
-  people = the_response['people']
-  print(people)
-  return render(request, 'astros.html', {
-    'people': people,
-  })
+  return render(request, 'astros.html')
 
 
 

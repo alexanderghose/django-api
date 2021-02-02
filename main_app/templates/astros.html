@@ -1,8 +1,20 @@
 <html>
     <body>
-        Here are my astronauts:<br><br>
-        {% for person in people %}
-            {{ person.name }} <br>
-        {% endfor %}
+
+        <button id="show">Show the astronauts</button>
+        <div id="display">
+            <script>
+                async function printUsers() {                
+                    let users = await fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json());
+                    return users;
+                }
+                
+                document.getElementById('show').addEventListener('click',async function() {
+                    let x = await 5;
+                    let my_users = await printUsers()
+                    document.getElementById("display").innerHTML = JSON.stringify(my_users)
+                })
+            </script>
+        </div>
     </body>
 </html>
